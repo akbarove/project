@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-import image from "../defaultProfilePhoto/image.png";
+import image from "../defaultProfilePhoto/Default_pfp.svg.png";
 import Button from "../button/Button";
 
 const Navbar = () => {
@@ -31,19 +31,11 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <Link className="logo" to="/">
-        <h2>G-Evening</h2>
+        <h2>MashinaBishkek</h2>
       </Link>
       <div className="navbarUser">
         <Link to="/create-product">
           <Button color="green">Create product</Button>
-        </Link>
-
-        <Link to="/users">
-          <Button color="blue">Users</Button>
-        </Link>
-
-        <Link to="/create-post">
-          <Button color="green">Create post</Button>
         </Link>
 
         <Link to="/edit-profile">
@@ -59,7 +51,6 @@ const Navbar = () => {
       <div className={`navMenu ${open ? "active" : ""}`}>
         <div>
           <Link to="/profile">My profile</Link>
-          <p>Logout</p>
         </div>
 
         <div
@@ -67,6 +58,7 @@ const Navbar = () => {
         >
           <Link to="/register">Sign up</Link>
           <Link to="/login">Sign in</Link>
+          <p>Logout</p>
         </div>
       </div>
     </div>
