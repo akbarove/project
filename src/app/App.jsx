@@ -8,7 +8,6 @@ const App = () => {
     <div>
       <Navbar />
       <MainRoutes />
-      <Input />
     </div>
   );
 };
