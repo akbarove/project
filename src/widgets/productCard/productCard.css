@@ -12,9 +12,9 @@
   height: 400px;
   display: block;
   cursor: pointer;
-  border: 2px solid rgb(150, 150, 200);
+  border: 2px solid rgb(56, 56, 57);
   background-color: rgb(241, 241, 252);
-  border-radius: 10px;
+  /* border-radius: 10px; */
   transition: all 0.3s;
 }
 .card:hover {

@@ -35,7 +35,7 @@
 }
 
 .inputGroup :is(input:focus, input:valid) {
-  border-color: rgb(150, 150, 200);
+  border-color: rgb(100, 100, 100);
 }
 
 .invalid {
