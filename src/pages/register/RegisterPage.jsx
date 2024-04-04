@@ -1,9 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "../../widgets/input/Input";
 import Button from "../../widgets/button/Button";
 import AuthForm from "../../features/Auth/AuthForm";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const RegisterPage = () => {
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+    passwordConfirm: "",
+
+    profileImage: "",
+
+    posts: [],
+  });
+  function handleChange(e) {
+    const { value, name } = e.target;
+    setUser({ ...user, [name]: value });
+  }
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    for (let key in user) {
+      if (!user[key]) {
+        alert("Some inputs are empty!");
+        return;
+      }
+    }
+    if (user.password !== user.passwordConfirm) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    if (user.password.length < 6) {
+      alert("Password must be more than 6 symbols");
+      return;
+    }
+
+    // const userObj = await users.find(
+    //   (item) =>
+    //     item.username.toLocaleLowerCase() === user.username.toLocaleLowerCase()
+    // );
+
+    // if (userObj) {
+    //   alert("You have already registered");
+    //   return;
+    // }
+
+    setUser({
+      username: "",
+      password: "",
+      passwordConfirm: "",
+      email: "",
+      profileImage: "",
+      backgroundImage:
+        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+      posts: [],
+    });
+    navigate("/");
+  }
+
   return (
     <div>
       <AuthForm>
