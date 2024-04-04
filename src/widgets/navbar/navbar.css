@@ -20,7 +20,7 @@
 
 .navbar a:hover,
 .user:hover {
-  color: red !important;
+  color: rgb(100, 100, 100) !important;
 }
 .logo {
   padding-left: 60px;

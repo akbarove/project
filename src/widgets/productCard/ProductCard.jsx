@@ -9,6 +9,7 @@ import Button from "../../widgets/button/Button";
 import { Link, useSearchParams } from "react-router-dom";
 import Loader from "../loader/Loader";
 import Input2 from "../input2/Input2";
+import Pagination from "../pagination/Pagination";
 
 const ProductsCard = () => {
   const { products, loading, error } = useSelector((state) => state.products);
@@ -64,6 +65,7 @@ const ProductsCard = () => {
           </div>
         ))}
       </div>
+      <Pagination />
     </div>
   );
 };

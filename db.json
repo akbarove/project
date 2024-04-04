@@ -34,6 +34,20 @@
       "price": "888888888",
       "image": "https://i1.sndcdn.com/artworks-6dr9cnjiQWZ4D5aE-H3NrDg-t500x500.jpg",
       "id": 5
+    },
+    {
+      "title": "lambrgambr",
+      "description": "lambo",
+      "price": "9999999999",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnFD3t9SGNedBm52TJnpVKhaosecIiGfvQEn2xRT07nQ&s",
+      "id": 6
+    },
+    {
+      "title": "edged car",
+      "description": "elon masks failure",
+      "price": "123",
+      "image": "https://auto-didakt.com/assets/images/5/tesla_cybertruck_1-7cc6c0d5.jpg",
+      "id": 7
     }
   ]
 }
