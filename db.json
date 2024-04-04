@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "title": "bmw",
+      "description": "car",
+      "price": "20000",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKXEbvP5_wLOSMPGz2aEzQYpkjll0CIAjIz7fCV2KUmA&s",
+      "id": 1
+    },
+    {
+      "title": "mersedes",
+      "description": "car",
+      "price": "11111",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKXEbvP5_wLOSMPGz2aEzQYpkjll0CIAjIz7fCV2KUmA&s",
+      "id": 2
+    },
+    {
+      "title": "corvette",
+      "description": "pizdataya",
+      "price": "4000",
+      "image": "https://media.ed.edmunds-media.com/chevrolet/corvette/2024/oem/2024_chevrolet_corvette_coupe_e-ray_fq_oem_1_1600.jpg",
+      "id": 3
+    },
+    {
+      "title": "Siniy TraktoR",
+      "description": "supercar",
+      "price": "1000000",
+      "image": "https://masterpiecer-images.s3.yandex.net/88526386795211ee8a6a4659bdca6a39:upscaled",
+      "id": 4
+    },
+    {
+      "title": "bagatata",
+      "description": "best car",
+      "price": "888888888",
+      "image": "https://i1.sndcdn.com/artworks-6dr9cnjiQWZ4D5aE-H3NrDg-t500x500.jpg",
+      "id": 5
+    }
+  ]
+}

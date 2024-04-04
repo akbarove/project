@@ -6,10 +6,10 @@ import Button from "../button/Button";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [user, setUser] = useState({
-    profileImage: image,
-    username: "",
-  });
+  // const [user, setUser] = useState({
+  //   profileImage: image,
+  //   username: "",
+  // });
 
   useEffect(() => {
     const handler = () => {
@@ -22,12 +22,6 @@ const Navbar = () => {
     };
   }, []);
 
-  // setUser вызывается непосредственно внутри компонента, что может вызвать проблемы с обновлением
-  // setUser({
-  //   profileImage: image,
-  //   username: "",
-  // });
-
   return (
     <div className="navbar">
       <Link className="logo" to="/">
@@ -35,14 +29,16 @@ const Navbar = () => {
       </Link>
       <div className="navbarUser">
         <Link to="/create-product">
-          <Button color="green">Create product</Button>
+          <Button style={{ color: "white" }} color="green">
+            Create product
+          </Button>
         </Link>
 
         <Link to="/edit-profile">
-          <Button>Edit profile</Button>
+          <Button style={{ color: "white" }}>Edit profile</Button>
         </Link>
 
-        <Link to="/profile">{user.username}</Link>
+        <Link to="/profile">UserName</Link>
       </div>
       <div className="navImage">
         <img alt="" onClick={() => setOpen(!open)} src={image} />
