@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import image from "../defaultProfilePhoto/Default_pfp.svg.png";
 import Button from "../button/Button";
+import ProductSearch from "../search/ProductSearch";
+import { getProducts } from "../../store/products/products.actions";
+import { useDispatch } from "react-redux";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  // const [user, setUser] = useState({
-  //   profileImage: image,
-  //   username: "",
-  // });
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const searchQuery = searchParams.get("q");
+    if (searchQuery) {
+      dispatch(getProducts(searchQuery));
+    } else {
+      dispatch(getProducts());
+    }
+  }, [searchParams, dispatch]);
 
   useEffect(() => {
     const handler = () => {
@@ -28,15 +39,7 @@ const Navbar = () => {
         <h2>MashinaBishkek</h2>
       </Link>
       <div className="navbarUser">
-        <Link to="/create-product">
-          <Button style={{ color: "white" }} color="green">
-            Create product
-          </Button>
-        </Link>
-
-        <Link to="/edit-profile">
-          <Button style={{ color: "white" }}>Edit profile</Button>
-        </Link>
+        <ProductSearch />
 
         <Link to="/profile">UserName</Link>
       </div>

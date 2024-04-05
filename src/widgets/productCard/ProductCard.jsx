@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./productCard.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -8,43 +8,14 @@ import {
 import Button from "../../widgets/button/Button";
 import { Link, useSearchParams } from "react-router-dom";
 import Loader from "../loader/Loader";
-import Input2 from "../input2/Input2";
 import Pagination from "../pagination/Pagination";
 
 const ProductsCard = () => {
   const { products, loading, error } = useSelector((state) => state.products);
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [searchVal, setSearchVal] = useState(searchParams.get("q") || "");
-
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (searchVal.trim() !== "") {
-        dispatch(getProducts(searchVal));
-      } else {
-        // Если поле поиска пустое, отправляем запрос на получение всех продуктов
-        dispatch(getProducts());
-      }
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [searchVal, dispatch]);
 
   return (
     <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          setSearchParams({ q: searchVal });
-        }}
-      >
-        <Input2
-          value={searchVal}
-          onChange={(e) => setSearchVal(e.target.value)}
-          name="Search"
-        />
-      </form>
       <div className="cardList">
         {(loading || error) && <Loader />}
         {products.map((item) => (
