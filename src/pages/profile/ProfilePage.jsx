@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./profile.css";
 import ProductsCard from "../../widgets/productCard/ProductCard";
 import { Link } from "react-router-dom";
 import Button from "../../widgets/button/Button";
+import { auth } from "../../firebas/firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 const MyProfilePage = () => {
+  const [authUser, setAuthUset] = useState(null);
+  useEffect(() => {
+    const listen = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setAuthUset(user);
+      } else {
+        setAuthUset(null);
+      }
+    });
+    return () => {
+      listen();
+    };
+  }, []);
   return (
     <div className="body">
       <div className="profile">
@@ -18,7 +33,9 @@ const MyProfilePage = () => {
               />
             </div>
             <div className="content">
-              <h1 className="profile-name">msdesigns</h1>
+            {
+              authUser ? (<h1 className="profile-name">{`${authUser.email}`}</h1>):(<p>you not log in</p>)
+            }
               <p className="profile-locality">Chandīgarh, India</p>
               <p className="profile-specializations">
                 Illustration, UI / Visual Design, UX Design / Research
