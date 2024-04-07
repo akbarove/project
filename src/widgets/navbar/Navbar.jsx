@@ -6,6 +6,10 @@ import Button from "../button/Button";
 import ProductSearch from "../search/ProductSearch";
 import { getProducts } from "../../store/products/products.actions";
 import { useDispatch } from "react-redux";
+import AuthDetails from "../../pages/auth/AuthDetails";
+import { auth } from "../../firebas/firebase";
+import { signOut } from "firebase/auth";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -32,6 +36,11 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handler);
     };
   }, []);
+  function userSignOut() {
+    signOut(auth)
+      .then(() => console.log("success"))
+      .catch((e) => console.log(e));
+  }
 
   return (
     <div className="navbar">
@@ -41,7 +50,7 @@ const Navbar = () => {
       <div className="navbarUser">
         <ProductSearch />
 
-        <Link to="/profile">UserName</Link>
+        <Link to="/profile"><AuthDetails/></Link>
       </div>
       <div className="navImage">
         <img alt="" onClick={() => setOpen(!open)} src={image} />
@@ -57,7 +66,7 @@ const Navbar = () => {
         >
           <Link to="/register">Sign up</Link>
           <Link to="/login">Sign in</Link>
-          <p>Logout</p>
+          <Link onClick={userSignOut} to="/" >log out</Link>
         </div>
       </div>
     </div>
