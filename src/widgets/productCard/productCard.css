@@ -1,5 +1,5 @@
 .cardList {
-  width: 90%;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 10px;
   display: grid;
@@ -9,13 +9,17 @@
   margin: 20px;
   padding: 20px;
   width: 300px;
-  height: 400px;
+  height: 500px;
   display: block;
   cursor: pointer;
   border: 2px solid rgb(56, 56, 57);
   background-color: rgb(241, 241, 252);
   /* border-radius: 10px; */
   transition: all 0.3s;
+  background-color: #011522;
+ border-radius: 8px;
+ z-index: 1;
+ color: white;
 }
 .card:hover {
   transform: scale(1.1);

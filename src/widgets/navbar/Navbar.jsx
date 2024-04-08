@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import image from "../defaultProfilePhoto/Default_pfp.svg.png";
-import Button from "../button/Button";
 import ProductSearch from "../search/ProductSearch";
 import { getProducts } from "../../store/products/products.actions";
 import { useDispatch, useSelector } from "react-redux";
 import Menu from "../../menu/Menu";
+
+import CartButton from "../cartButton/CartButton";
+
+import AuthDetails from "../../pages/auth/AuthDetails";
+import { auth } from "../../firebas/firebase";
+import { signOut } from "firebase/auth";
+
 
 const Navbar = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -18,18 +24,7 @@ const Navbar = () => {
   ];
 
   const [open, setOpen] = useState(false);
-
-  const [searchParams, setSearchParams] = useSearchParams();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    const searchQuery = searchParams.get("q");
-    if (searchQuery) {
-      dispatch(getProducts(searchQuery));
-    } else {
-      dispatch(getProducts());
-    }
-  }, [searchParams, dispatch]);
 
   useEffect(() => {
     const handler = () => {
@@ -41,6 +36,11 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handler);
     };
   }, []);
+  function userSignOut() {
+    signOut(auth)
+      .then(() => console.log("success"))
+      .catch((e) => console.log(e));
+  }
 
   return (
     <div className="navbar">
@@ -60,7 +60,13 @@ const Navbar = () => {
       <div className="navbarUser">
         <ProductSearch />
 
-        <Link to="/profile">UserName</Link>
+        <Link to="/cart">
+          <CartButton />
+        </Link>
+        
+
+        <Link to="/profile"><AuthDetails/></Link>
+
       </div>
 
       <div className="navImage">
@@ -76,7 +82,7 @@ const Navbar = () => {
         >
           <Link to="/register">Sign up</Link>
           <Link to="/login">Sign in</Link>
-          <p>Logout</p>
+          <Link onClick={userSignOut} to="/" >log out</Link>
         </div>
       </div>
     </div>
