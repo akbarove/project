@@ -41,6 +41,13 @@
   margin-left: 310px;
   border-bottom: 1px solid #e7e7e9;
 }
+.editprofile {
+  position: fixed;
+  top: 30%;
+  left: 10%;
+  color: black;
+  transform: translate(-50%, -50%);
+}
 .addproductbtn {
   position: fixed;
   top: 30%;

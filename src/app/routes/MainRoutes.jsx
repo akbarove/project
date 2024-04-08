@@ -5,9 +5,14 @@ import EditProduct from "../../pages/products/edit/EditProduct";
 import AuthProvider from "../AuthProvider";
 import ProfilePage from "../../pages/profile/ProfilePage";
 
+
+import Contact from "../../pages/contactus/Contact";
+import editeProfile from "../../pages/editProfile/editeProfile";
+=======
 import CartPage from "../../pages/cart/CartPage";
 import LoginPage from "../../pages/auth/login/LoginPage";
 import RegisterPage from "../../pages/auth/register/RegisterPage"
+
 
 
 const MainRoutes = () => {
@@ -18,6 +23,12 @@ const MainRoutes = () => {
       <Route path="/edit-product/:id" element={<EditProduct />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
+
+      <Route path="/editeProfile" element={<editeProfile />} />
+      {/* <Route path="/login" element={<LoginPage />} /> */}
+      <Route path="/contact" element={<Contact />} />
+
+
       <Route element={<AuthProvider />}>
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/login" element={<LoginPage />} />

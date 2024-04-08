@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import image from "../defaultProfilePhoto/Default_pfp.svg.png";
 import ProductSearch from "../search/ProductSearch";
 import { getProducts } from "../../store/products/products.actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Menu from "../../menu/Menu";
 
 import CartButton from "../cartButton/CartButton";
 
@@ -14,6 +15,14 @@ import { signOut } from "firebase/auth";
 
 
 const Navbar = () => {
+  const [menuActive, setMenuActive] = useState(false);
+  const items = [
+    { value: "Home", href: "/" },
+    { value: "Profile", href: "/profile" },
+    { value: "Products", href: "/products" },
+    { value: "Contact us", href: "/contact" },
+  ];
+
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -35,9 +44,19 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
+      <div className="burger-btn" onClick={() => setMenuActive(!menuActive)}>
+        <span />
+      </div>
+      <Menu
+        active={menuActive}
+        setActive={setMenuActive}
+        header={"Menu"}
+        items={items}
+      />
       <Link className="logo" to="/">
         <h2>MashinaBishkek</h2>
       </Link>
+
       <div className="navbarUser">
         <ProductSearch />
 
@@ -49,6 +68,7 @@ const Navbar = () => {
         <Link to="/profile"><AuthDetails/></Link>
 
       </div>
+
       <div className="navImage">
         <img alt="" onClick={() => setOpen(!open)} src={image} />
       </div>
@@ -57,7 +77,6 @@ const Navbar = () => {
         <div>
           <Link to="/profile">My profile</Link>
         </div>
-
         <div
           style={{ display: "flex", flexDirection: "column", rowGap: "10px" }}
         >
