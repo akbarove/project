@@ -6,8 +6,17 @@ import Button from "../button/Button";
 import ProductSearch from "../search/ProductSearch";
 import { getProducts } from "../../store/products/products.actions";
 import { useDispatch } from "react-redux";
+import Menu from "../../menu/Menu";
 
 const Navbar = () => {
+  const [menuActive, setMenuActive] = useState(false);
+  const items = [
+    { value: "Home", href: "/" },
+    { value: "Profile", href: "/profile" },
+    { value: "Products", href: "/products" },
+    { value: "Contact us", href: "/contact" },
+  ];
+
   const [open, setOpen] = useState(false);
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -35,9 +44,19 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
+      <div className="burger-btn" onClick={() => setMenuActive(!menuActive)}>
+        <span />
+      </div>
+      <Menu
+        active={menuActive}
+        setActive={setMenuActive}
+        header={"Menu"}
+        items={items}
+      />
       <Link className="logo" to="/">
         <h2>MashinaBishkek</h2>
       </Link>
+
       <div className="navbarUser">
         <ProductSearch />
 
@@ -51,7 +70,6 @@ const Navbar = () => {
         <div>
           <Link to="/profile">My profile</Link>
         </div>
-
         <div
           style={{ display: "flex", flexDirection: "column", rowGap: "10px" }}
         >

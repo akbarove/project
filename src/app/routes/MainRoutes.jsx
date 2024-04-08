@@ -6,6 +6,7 @@ import RegisterPage from "../../pages/register/RegisterPage";
 import AuthProvider from "../AuthProvider";
 import ProfilePage from "../../pages/profile/ProfilePage";
 import LoginPage from "../../pages/login/LoginPage";
+import Contact from "../../pages/contactus/Contact";
 
 const MainRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const MainRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
       {/* <Route path="/login" element={<LoginPage />} /> */}
+      <Route path="/contact" element={<Contact />} />
       <Route element={<AuthProvider />}>
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/login" element={<LoginPage />} />

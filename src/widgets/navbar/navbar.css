@@ -10,7 +10,9 @@
   display: flex;
   justify-content: space-between;
   top: 0;
+  display: flex;
   z-index: 3;
+  align-items: center;
 }
 .navbar a {
   color: white;
@@ -76,4 +78,35 @@
   transform: translate(0);
   opacity: 1;
   visibility: visible;
+}
+.burger-btn {
+  width: 30px;
+  height: 20px;
+  margin-left: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.burger-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 30px;
+  background-color: white;
+  height: 2px;
+}
+
+.burger-btn:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 30px;
+  background-color: white;
+  height: 2px;
+}
+.burger-btn span {
+  position: absolute;
+  top: 9px;
+  width: 30px;
+  background-color: white;
+  height: 2px;
 }
