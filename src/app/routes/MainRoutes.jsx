@@ -2,11 +2,13 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "../../pages/home/HomePage";
 import AddProduct from "../../pages/products/add/AddProduct";
 import EditProduct from "../../pages/products/edit/EditProduct";
-import RegisterPage from "../../pages/register/RegisterPage";
 import AuthProvider from "../AuthProvider";
 import ProfilePage from "../../pages/profile/ProfilePage";
-import LoginPage from "../../pages/login/LoginPage";
+
 import CartPage from "../../pages/cart/CartPage";
+import LoginPage from "../../pages/auth/login/LoginPage";
+import RegisterPage from "../../pages/auth/register/RegisterPage"
+
 
 const MainRoutes = () => {
   return (
@@ -16,7 +18,6 @@ const MainRoutes = () => {
       <Route path="/edit-product/:id" element={<EditProduct />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
-      {/* <Route path="/login" element={<LoginPage />} /> */}
       <Route element={<AuthProvider />}>
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/login" element={<LoginPage />} />

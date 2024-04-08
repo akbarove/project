@@ -19,7 +19,7 @@ const Pagination = () => {
 
   return (
     <div className="pagination-container">
-      {currentPage !== 1 && <button onClick={decrement}>Previous</button>}
+      {currentPage !== 1 && <button onClick={decrement}>Prev</button>}
       <span>{currentPage}</span>
       {!lastPage && <button onClick={increment}>Next</button>}
     </div>

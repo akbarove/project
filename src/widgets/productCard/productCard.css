@@ -1,5 +1,5 @@
 .cardList {
-  width: 90%;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 10px;
   display: grid;
@@ -16,6 +16,10 @@
   background-color: rgb(241, 241, 252);
   /* border-radius: 10px; */
   transition: all 0.3s;
+  background-color: #011522;
+ border-radius: 8px;
+ z-index: 1;
+ color: white;
 }
 .card:hover {
   transform: scale(1.1);
