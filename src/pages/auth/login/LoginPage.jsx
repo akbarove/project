@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const LoginPage = () => {
+  const [user,setUser] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -28,6 +29,9 @@ const LoginPage = () => {
             setError("SORRY, COULDN'T FIND YOUR ACCOUNT")
             return
       });
+      if(user !== password){
+        return 
+      }
       navigate("/")
   }
   return (

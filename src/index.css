@@ -4,14 +4,15 @@
   box-sizing: border-box;
 }
 .formStyles {
-  color: rgb(150, 150, 200);
-  background-color: rgb(241, 241, 252);
-  width: 300px;
-  margin: 10px;
-  border: 2px solid rgb(150, 150, 200);
-  border-radius: 20px;
+  max-width: 400px;
+  background-color:white;
+  padding: 32px 34px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #212121;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  gap: 30px;
+  border: none;
+
 }

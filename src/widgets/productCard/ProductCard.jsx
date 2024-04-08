@@ -25,18 +25,20 @@ const ProductsCard = () => {
             <h3>{item.price}$</h3>
             <p>{item.description}</p>
             <Link to={`/edit-product/${item.id}`}>
-              <Button color="blue">edit</Button>
+              <Button style={{color:"white"}} color="blue">edit</Button>
             </Link>
-            <Button
+            <Button style={{color:"white"}}
               onClick={() => dispatch(deleteProduct(item.id))}
-              color="red"
+              color="white"
             >
               delete
             </Button>
           </div>
         ))}
       </div>
-      <Pagination />
+      <div style={{marginTop:"5%",marginLeft:"35%"}}>
+      <Pagination/>
+      </div>
     </div>
   );
 };
