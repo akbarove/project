@@ -6,11 +6,13 @@ import RegisterPage from "../../pages/register/RegisterPage";
 import AuthProvider from "../AuthProvider";
 import ProfilePage from "../../pages/profile/ProfilePage";
 import LoginPage from "../../pages/login/LoginPage";
+import CartPage from "../../pages/cart/CartPage";
 
 const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/create-product" element={<AddProduct />} />
+      <Route path="/cart" element={<CartPage />} />
       <Route path="/edit-product/:id" element={<EditProduct />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
