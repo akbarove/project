@@ -28,6 +28,9 @@ const MyProfilePage = () => {
         </section>
       </div>
       <div className="line"></div>
+      <Link to="/edit-profile">
+        <Button className="editprofile">Edit profile</Button>
+      </Link>
       <Link to="/create-product">
         <Button
           className="addproductbtn"
@@ -37,6 +40,7 @@ const MyProfilePage = () => {
           Create product
         </Button>
       </Link>
+
       <ProductsCard />
     </div>
   );

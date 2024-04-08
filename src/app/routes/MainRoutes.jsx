@@ -7,6 +7,7 @@ import AuthProvider from "../AuthProvider";
 import ProfilePage from "../../pages/profile/ProfilePage";
 import LoginPage from "../../pages/login/LoginPage";
 import Contact from "../../pages/contactus/Contact";
+import editeProfile from "../../pages/editProfile/editeProfile";
 
 const MainRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const MainRoutes = () => {
       <Route path="/edit-product/:id" element={<EditProduct />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/editeProfile" element={<editeProfile />} />
       {/* <Route path="/login" element={<LoginPage />} /> */}
       <Route path="/contact" element={<Contact />} />
       <Route element={<AuthProvider />}>

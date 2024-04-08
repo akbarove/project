@@ -5,7 +5,7 @@ import image from "../defaultProfilePhoto/Default_pfp.svg.png";
 import Button from "../button/Button";
 import ProductSearch from "../search/ProductSearch";
 import { getProducts } from "../../store/products/products.actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Menu from "../../menu/Menu";
 
 const Navbar = () => {
@@ -62,6 +62,7 @@ const Navbar = () => {
 
         <Link to="/profile">UserName</Link>
       </div>
+
       <div className="navImage">
         <img alt="" onClick={() => setOpen(!open)} src={image} />
       </div>
